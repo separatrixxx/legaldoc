@@ -1,0 +1,28 @@
+.documentsDiv {
+	display: grid;
+	grid-template-columns: auto;
+
+	width: 100%;
+	margin-top: 40px;
+	gap: 30px;
+}
+
+.noDocs {
+	margin-left: 60px;
+}
+
+@media (max-width: 1024px) {
+	.noDocs {
+		margin-left: 40px;
+	}
+}
+
+@media (max-width: 580px) {
+	.documentsDiv {
+		margin-top: 20px;
+	}
+
+	.noDocs {
+		margin-left: 20px;
+	}
+}

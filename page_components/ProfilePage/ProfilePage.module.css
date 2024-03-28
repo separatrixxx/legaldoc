@@ -1,0 +1,70 @@
+.wrapper {
+	display: grid;
+
+	width: 100%;
+	height: 100vh;
+	justify-items: center;
+}
+
+.wrapperDiv {
+	display: grid;
+
+	width: 100%;
+	height: fit-content;
+	justify-items: center;
+}
+
+.myDocs {
+	display: grid;
+	align-items: center;
+
+	margin-top: 40px;
+	margin-left: 60px !important;
+	justify-self: left;
+	grid-template-columns: auto auto;
+	gap: 10px;
+}
+
+.myDocs > svg {
+	width: 20px;
+	fill: var(--primary);
+
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.myDocs > svg:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+@media (min-width: 1024px) {
+	.myDocs > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		filter: brightness(0.9);
+	}
+}
+
+@media (max-width: 1024px) {
+	.myDocs {
+		margin-left: 40px !important;
+	}
+
+	.myDocs > svg {
+		width: 16px;
+	}
+}
+
+@media (max-width: 580px) {
+	.myDocs {
+		margin-top: 20px;
+		margin-left: 20px !important;
+		gap: 7px;
+	}
+
+	.myDocs > svg {
+		width: 14px;
+	}
+}

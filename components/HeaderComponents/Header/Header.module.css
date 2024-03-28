@@ -1,0 +1,21 @@
+.header {
+	display: grid;
+	align-items: center;
+
+	width: 100%;
+	height: fit-content;
+	padding: 15px 0;
+
+	border-bottom: 2px solid var(--primary);
+	grid-template-columns: auto 1fr auto;
+	justify-items: right;
+	gap: 20px;
+}
+
+@media (max-width: 580px) {
+	.header {
+		padding: 20px 0;
+
+		border-width: 1px;
+	}
+}

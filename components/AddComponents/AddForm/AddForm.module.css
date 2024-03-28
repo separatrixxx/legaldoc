@@ -1,0 +1,42 @@
+.addForm {
+	display: grid;
+
+	width: 50%;
+	height: fit-content;
+	margin-top: 40px;
+	margin-left: 60px !important;
+	gap: 20px;
+}
+
+.addButton {
+	width: 200px;
+	height: 35px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	color: var(--white);
+	border: none;
+	border-radius: 9999px;
+	background: var(--primary);
+
+	font-weight: 700;
+}
+
+.addButton:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.loadingButton {
+	cursor: not-allowed;
+}
+
+@media (min-width: 1024px) {
+	.addButton:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		filter: brightness(0.9);
+	}
+}

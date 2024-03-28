@@ -1,0 +1,40 @@
+.wrapper {
+	display: grid;
+
+	width: 100%;
+	height: 100vh;
+	justify-items: left;
+}
+
+.wrapperDiv {
+	display: grid;
+
+	width: 100%;
+	height: fit-content;
+	justify-items: left;
+}
+
+.addDoc {
+	display: grid;
+	align-items: center;
+
+	margin-top: 40px !important;
+	margin-left: 60px !important;
+	justify-self: left;
+	grid-template-columns: auto auto;
+	gap: 10px;
+}
+
+@media (max-width: 1024px) {
+	.addDoc {
+		margin-left: 40px !important;
+	}
+}
+
+@media (max-width: 580px) {
+	.addDoc {
+		margin-top: 20px;
+		margin-left: 20px !important;
+		gap: 7px;
+	}
+}

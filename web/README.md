@@ -1,8 +1,8 @@
 # LegalDoc.Exchange
 
-### Сначала установить зависимости: `npm install`
+### Install dependencies first: `npm install`
 
-### Для запуска использовать `npm run`:
-- `dev` - запуск в режиме разработчика
-- `build` - сборка проекта
-- `start` - запуск собранного проекта
+### To start use `npm run`:
+- `dev` - launch in developer mode
+- `build` - building the project
+- `start` - launching the assembled project

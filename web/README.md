@@ -1,4 +1,4 @@
-# LegalDoc.Exchange
+# LegalDoc.Exchange Web
 
 ### Install dependencies first: `npm install`
 

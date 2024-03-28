@@ -12,10 +12,7 @@ export async function addDocument(key: string, selectedFile: any, setTitle: (e: 
         return;
     }
 
-    const openai = new OpenAI({
-        apiKey: key,
-        dangerouslyAllowBrowser: true,
-    });
+    const openai = new OpenAI();
 
     const reader = new FileReader();
 

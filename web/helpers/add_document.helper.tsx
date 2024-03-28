@@ -1,6 +1,5 @@
-import { ToastError } from "../components/Toast/Toast";
+import { ToastError, ToastSuccess } from "../components/Toast/Toast";
 import { setLocale } from "./locale.helper";
-import OpenAI from "openai";
 
 
 export async function addDocument(key: string, selectedFile: any, setTitle: (e: any) => void,
@@ -12,54 +11,56 @@ export async function addDocument(key: string, selectedFile: any, setTitle: (e: 
         return;
     }
 
-    const openai = new OpenAI();
+    ToastSuccess('gg');
 
-    const reader = new FileReader();
+    // const openai = new OpenAI();
 
-    reader.onload = async (e) => {
-        const fileContent = e.target?.result;
+    // const reader = new FileReader();
 
-        let prompt = `Напишите заголовок и аннотацию для следующего юридического документа без кавычек. Ответ пришли на том языке, на котором написан документ.  Подписывать заголовок и аннтотацию не нужно. Просто пришли текст заголовка и текс аннотации, разделённые \n: ${fileContent}`;
+    // reader.onload = async (e) => {
+    //     const fileContent = e.target?.result;
 
-        setLoading(true);
+    //     let prompt = `Напишите заголовок и аннотацию для следующего юридического документа без кавычек. Ответ пришли на том языке, на котором написан документ.  Подписывать заголовок и аннтотацию не нужно. Просто пришли текст заголовка и текс аннотации, разделённые \n: ${fileContent}`;
 
-        try {
-            const stream = await openai.chat.completions.create({
-                model: "gpt-4",
-                messages: [{ role: "user", content: prompt }],
-                stream: true,
-            });
+    //     setLoading(true);
+
+    //     try {
+    //         const stream = await openai.chat.completions.create({
+    //             model: "gpt-4",
+    //             messages: [{ role: "user", content: prompt }],
+    //             stream: true,
+    //         });
     
-            let fullResponse = '';
+    //         let fullResponse = '';
     
-            for await (const chunk of stream) {
-                fullResponse += chunk.choices[0]?.delta?.content || "";
-            }
+    //         for await (const chunk of stream) {
+    //             fullResponse += chunk.choices[0]?.delta?.content || "";
+    //         }
     
-            const parts = fullResponse.split("\n\n");
-            const title = parts[0].replace("Заголовок: ", "");
-            const summary = parts[1].replace("Аннотация: ", "");
+    //         const parts = fullResponse.split("\n\n");
+    //         const title = parts[0].replace("Заголовок: ", "");
+    //         const summary = parts[1].replace("Аннотация: ", "");
     
-            setLoading(false);
+    //         setLoading(false);
     
-            setTitle(title);
-            setSummary(summary);
-        } catch (e) {
-            ToastError('' + e);
+    //         setTitle(title);
+    //         setSummary(summary);
+    //     } catch (e) {
+    //         ToastError('' + e);
 
-            setLoading(false);
-        }
+    //         setLoading(false);
+    //     }
 
         // console.log(title)
         // console.log(summary)
 
-        // console.log(fullResponse);
-    };
+    //  console.log(fullResponse);
+    // };
 
-    reader.onerror = () => {
-        console.error('Ошибка при чтении файла');
-        ToastError('Ошибка при чтении файла');
-    };
+    // reader.onerror = () => {
+    //     console.error('Ошибка при чтении файла');
+    //     ToastError('Ошибка при чтении файла');
+    // };
 
-    reader.readAsText(selectedFile);
+    // reader.readAsText(selectedFile);
 }

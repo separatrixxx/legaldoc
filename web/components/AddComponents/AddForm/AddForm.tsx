@@ -13,6 +13,8 @@ export const AddForm = (): JSX.Element => {
 
     const [title, setTitle] = useState<string>('Title');
     const [summary, setSummary] = useState<string>('Summary');
+    const [key, setKey] = useState<string>('');
+
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -23,10 +25,11 @@ export const AddForm = (): JSX.Element => {
 
     return (
         <div className={styles.addForm}>
+            <input type="text" placeholder="key" value={key} onChange={(e) => setKey(e.target.value)} />
             <input type="file" onChange={handleFileChange} accept=".pdf,.doc,.docx,.txt" />
             {
                 !loading ?
-                    <button className={styles.addButton} onClick={() => addDocument(selectedFile, setTitle,
+                    <button className={styles.addButton} onClick={() => addDocument(key, selectedFile, setTitle,
                         setSummary, setLoading, router)}>
                         {setLocale(router.locale).add_document}
                     </button>
